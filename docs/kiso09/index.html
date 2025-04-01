@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>基礎数理 9 - 階数と固有値 | 数理ノート</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="基礎数理 9 - 階数と固有値" />
+<meta name="author" content="u5491" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="基礎数理 9 - 階数, 固有値" />
+<meta property="og:description" content="基礎数理 9 - 階数, 固有値" />
+<link rel="canonical" href="http://localhost:4000/kiso09/" />
+<meta property="og:url" content="http://localhost:4000/kiso09/" />
+<meta property="og:site_name" content="数理ノート" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-02T01:26:54+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="基礎数理 9 - 階数と固有値" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"u5491"},"dateModified":"2025-04-02T01:26:54+09:00","datePublished":"2025-04-02T01:26:54+09:00","description":"基礎数理 9 - 階数, 固有値","headline":"基礎数理 9 - 階数と固有値","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/kiso09/"},"url":"http://localhost:4000/kiso09/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="数理ノート" /><!-- MathJax support -->
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: {'[+]': ['ams', 'mathtools']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true   // ← ここを追加！
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">数理ノート</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kiso09/">基礎数理 9 - 階数と固有値</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">u5491</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CUTE BUNNY</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Japan</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/u5491" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="基礎数理 9 - 階数と固有値">
+    <meta itemprop="description" content="基礎数理 9 - 階数, 固有値">
+    <meta itemprop="datePublished" content="2025-04-02T01:26:54+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/kiso09/" itemprop="url">基礎数理 9 - 階数と固有値
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目次</h4></header>
+              <ul class="toc__menu"><li><a href="#基礎数理-9---階数-固有値">基礎数理 9 - 階数, 固有値</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h3 id="基礎数理-9---階数-固有値">基礎数理 9 - 階数, 固有値</h3>
+
+<p><strong>Thm</strong>（階数の同値な定義）<br />
+行列 $A$ の一次独立な列（行）の最大本数として定義される階数 $\mathrm{rank}\ A$ は，$A$ の正則行列の最大次数，および $\dim \mathrm{Im}\ A$ に等しい．</p>
+
+<p>上の同値な定義をうまく使うと，次が示せる：</p>
+
+<p><strong>Thm</strong>（階数の性質）</p>
+
+<ul>
+  <li>$\mathrm{rank}\ AB \leq \min \lbrace \mathrm{rank}\ A, \mathrm{rank}\ B \rbrace$</li>
+  <li>$S, T$ が正則ならば $\mathrm{rank}\ A = \mathrm{rank}\ SAT$</li>
+  <li>$\forall A, B \in \mathbb{R}^{m \times n}, \mathrm{rank}\ (A + B) \leq \mathrm{rank}\ A + \mathrm{rank}\ B$</li>
+  <li>（証明が $2$ 通りある） $\forall A \in \mathbb{R}^{m \times n}, B \in \mathbb{R}^{n \times p}, \mathrm{rank}\ A + \mathrm{rank}\ B - n \leq \mathrm{rank}\ AB$</li>
+  <li>（行列形についての条件は省略） $\mathrm{rank}\ AB + \mathrm{rank}\ BC \leq \mathrm{rank}\ ABC + \mathrm{rank}\ B$</li>
+</ul>
+
+<hr />
+
+<p><strong>Def</strong>（対称, 正定値, 半正定値）</p>
+
+<hr />
+
+<p><strong>Thm</strong><br />
+正方行列 $A$ が正定値対称ならば，$\det A &gt; 0$ が成り立つ．（逆は成り立たない）</p>
+
+<hr />
+
+<p><strong>Def</strong>（正規行列，ユニタリ行列，エルミート行列）<br />
+$A$ を複素正方行列とする．</p>
+
+<ul>
+  <li>$AA^* = A^*A$ が成り立つとき，$A$ は <strong>正規行列</strong> であるという．</li>
+  <li>さらに $AA^* = A^*A = I$ が成り立つとき，$A$ は <strong>ユニタリ行列</strong> であるという．</li>
+  <li>さらに $A = A^*$ が成り立つとき，$A$ は <strong>エルミート行列</strong> であるという．</li>
+</ul>
+
+<hr />
+
+<p><strong>Thm</strong>（正規行列の対角化可能性）<br />
+複素正方行列 $A$ が正規行列であることと，$A$ が対角化可能であることとは同値．</p>
+
+<hr />
+
+<p><strong>Thm</strong>（量子力学でもよく使う）<br />
+複素正方行列 $A$ がエルミート行列ならば，$A$ の固有値はすべて実数となる．</p>
+
+<hr />
+
+<p><strong>Def</strong>（Rayleigh 商）<br />
+$A$ をエルミート行列とする．$A, x \neq 0$ について，Rayleigh 商 $R_A(x)$ は次式で定義される：</p>
+
+\[R_A(x) := \frac{x^*Ax}{x^*x}\]
+
+<p>$A$ の最大固有値，最小固有値をそれぞれ $\lambda_\mathrm{max}, \lambda_\mathrm{min}$ とおくと，Rayleigh 商について次のことが成り立つ（練習問題）：</p>
+
+\[\lambda_\mathrm{max} = \max_{x \neq 0} R_A(x), \quad
+\lambda_\mathrm{min} = \min_{x \neq 0} R_A(x)\]
+
+<hr />
+
+<p><strong>Thm</strong>（Courant-Fischer の定理）<br />
+$A$ をエルミート行列とし，その固有値を $\lambda_1 \geq \cdots \geq \lambda_n$ とおくと，次が成り立つ：</p>
+
+\[\lambda_k = \max_{U_k}\min\left\{R_A(x) \mid x \in U_k \setminus \left\{0\right\} \right\}\]
+
+<p>ここで，$U_k$ は $k$ 次元部分空間である．</p>
+
+<hr />
+
+<p><strong>Proof</strong><br />
+$\lambda_1, \cdots, \lambda_n$ に対応する直交固有ベクトルをそれぞれ $u_1, \cdots, u_n$ として：</p>
+
+\[\begin{align}
+V_k &amp;= \mathrm{span}\left\{u_1, \cdots, u_k\right\} \\
+W_l &amp;= \mathrm{span}\left\{u_{n - l + 1}, \cdots, u_n\right\}
+\end{align}\]
+
+<p>とおく．このとき，先ほどの Rayleigh 商に関する性質より：</p>
+
+<ul>
+  <li>$\forall x \in V_k,\quad \lambda_1 \leq R_A(x) \leq \lambda_k$</li>
+  <li>$\forall x \in W_l,\quad \lambda_{n - l + 1} \geq R_A(x) \geq \lambda_n$</li>
+</ul>
+
+<p>が成り立つ．さて，任意の $k$ 次元部分空間 $U_k$ について，$U_k \cap W_{n - k + 1} \neq \lbrace 0 \rbrace$ であり，これより：</p>
+
+\[\min\left\{R_A(x) \mid x \in U_k,\ x \neq 0\right\} \leq \lambda_k\]
+
+<p>特に $U_k = V_k$ のとき等号が成立することもわかる．これより示すべきことが言えた．$\square$</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-02T01:26:54+09:00">April 2, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">数理ノート</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">数理ノート</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/u5491"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">u5491</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>数式が書けて装飾的なJekyllサイトです。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
