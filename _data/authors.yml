@@ -1,0 +1,8 @@
+u5491:
+  name: "u5491"
+  bio: "CUTE BUNNY"
+  location: "Japan"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/u5491"

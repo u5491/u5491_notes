@@ -1,6 +1,14 @@
 ---
-layout: default
 title: "基礎数理 9 - 階数と固有値"
+layout: default
+permalink: /kiso09/
+author: u5491           # ← ここを追加（authors.ymlと対応）
+# author_profile: true    # ← 著者プロフィールを表示
+# read_time: true         # ← 読了時間表示（任意）
+# classes: wide           # ← 幅を広げてカード風に（narrowも可）
+mathjax: true
+# toc: true
+# toc_sticky: true
 ---
 
 ### 基礎数理 9 - 階数, 固有値
