@@ -9,7 +9,8 @@ twitter_username: jekyllrb
 github_username: u5491
 
 # remote_theme: "mmistakes/minimal-mistakes" -> theme: minima
-theme: minima
+# theme: minima
+remote_theme: jekyll/minima
 
 plugins:
   - jekyll-feed
