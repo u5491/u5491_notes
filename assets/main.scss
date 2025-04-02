@@ -1,0 +1,25 @@
+---
+---
+
+@import "minima"; // minima のCSSを読み込む
+
+/* 🎨 カスタムスタイルはここから下に追加 */
+body {
+  background-color: #fdfdfd;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3 {
+  color: #336699;
+  font-weight: bold;
+}
+
+a {
+  color: #0066cc;
+}
+
+code {
+  background-color: #f4f4f4;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
