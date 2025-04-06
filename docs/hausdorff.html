@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hausdorff空間 - Your awesome title</title>
+
+    <!-- Minima テーマの CSS -->
+    <link rel="stylesheet" href="/u5491_notes/assets/main.css">
+
+    <!-- MathJax 読み込み -->
+    <!-- _includes/head.html -->
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script type="text/javascript" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/u5491_notes/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/u5491_notes/about/">About</a><a class="page-link" href="/u5491_notes/hausdorff.html">Hausdorff空間</a><a class="page-link" href="/u5491_notes/">ホーム</a><a class="page-link" href="/u5491_notes/lp-dual.html">線形計画問題と双対問題</a></div>
+      </nav></div>
+</header>
+
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Hausdorff空間</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="" itemprop="datePublished">
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <blockquote class="definition">
+<div class="title">Definition: Hausdorff空間</div>
+<p>
+$(S, \mathcal{O})$を位相空間とする. 次をみたすとき, $S$はHausdorff空間であるという : 
+$$
+\forall x, y \in S\ (x \neq y), \exists U \in \mathcal{N}(x), V \in \mathcal{N}(y)\ 
+\mathrm{s.t.}\ U \cap V \neq \varnothing
+$$
+</p>
+</blockquote>
+
+<h3 id="例">例</h3>
+<ul>
+  <li>$\mathbb{R}^n$(Euclid位相)はHausdorff空間である.</li>
+  <li>より一般に, 距離空間$(S, d)$はHausdorff空間である.</li>
+  <li>Zariski位相は必ずしもHausdorff空間でない.</li>
+</ul>
+
+<blockquote class="definition">
+<div class="title">Remark : 一点集合</div>
+<p>
+Hausdorff空間$(S, \mathcal{O})$において, 一点集合$\lbrace x\rbrace$は閉集合である. 
+</p>
+</blockquote>
+
+<p><strong>証明 :</strong> $x$と異なる任意の点$y \in S$をとる. Hausdorff性より, ある$U_y \in \mathcal{N}(x), V_y \in \mathcal{N}(y)$がとれて, $U_y \cap V_y = \varnothing$をみたす. $V_y \subset S \backslash \lbrace x\rbrace$であり</p>
+
+\[\bigcup_{y \in S\backslash\lbrace x\rbrace} V_y
+= S\backslash\lbrace x\rbrace\]
+
+<p>より, $S\backslash\lbrace x\rbrace$は開集合である. したがって, $\lbrace x\rbrace$は閉集合である. $\square$</p>
+
+<p><strong>注意!</strong> : 授業で教えてもらった証明がなんかうまくいかなかったので, 上の証明はインターネットで拾ったものを参考に書きました.</p>
+
+<blockquote class="definition">
+<div class="title">Note : Zariski位相はHausdorff空間でないことがある</div>
+<p>
+$n = 1, K = \mathbb{C}$の場合を考える. $\mathbb{C}[X]$は単項イデアル整域であるので, 非自明なイデアル$I$は$f(X) \in \mathbb{C}[X]$により生成されるが, このとき$V(I)$は$f(X)$の根の集合となる. ここで, $\deg f &lt; \infty$より$V(I)$はつねに有限集合となる. 逆に, 任意の$\mathbb{C}$の有限集合について, その元を根としてもつような$\mathbb{C}[X]$の元を構成できるため, Zariski位相における閉集合系は$\mathbb{C}$の有限集合全体からなる集合に一致する. 開集合は有限集合の補集合として定義されたため, 任意の空でない開集合は必ず交わる. 
+</p>
+</blockquote>
+<p>なお, 有限体$K$上のZariski位相は離散位相となるので, Hausdorff空間となる.</p>
+
+<blockquote class="definition">
+<div class="title">Property : コンパクトならば閉集合</div>
+<p>
+$(S, \mathcal{O})$をHausdorff空間とする. $F \subset S$がコンパクトならば, $F$は閉集合となる. 
+</p>
+</blockquote>
+
+<p><strong>証明 :</strong> $O = S \backslash F$とする. まず, はじめに次を示す :</p>
+
+\[\begin{align}
+\forall x \in O, \exists W_x \in \mathcal{N}(x)\ \mathrm{s.t.}\ W_x \subset O
+\end{align}\]
+
+<p>$x \in O$を固定し, $y \in F$を任意にとる. $S$はHausdorff空間なので, 次が成り立つ :</p>
+
+\[\begin{align}
+\exists U_x \in \mathcal{N}(x)\cap\mathcal{O}, V_y \in \mathcal{N}(y) \cap \mathcal{O}\ \mathrm{s.t.}\ U_y \cap V_y = \varnothing
+\end{align}\]
+
+<p>このとき$\lbrace V_y \mid y \in F\rbrace$は$F$の開被覆であり, $F$のコンパクト性より次が成り立つ :</p>
+
+\[\exists J \subset F\ \mathrm{s.t.}\ |J| &lt; \infty, F \subset \bigcup_{y \in J} V_y\]
+
+<p>ここで, $W_x = \bigcup_{y \in J} U_y$とすると, <strong>$J$の有限性より</strong>$W_x$は開集合となり, $W_x \in \mathcal{N}(x) \cap \mathcal{O}$となる. 次に, $W_x \cap F = \varnothing$を示す. これは, $z \in F$について$y \in J$が存在して$z \in V_y$となるが, このとき$z \notin U_y$より$z \notin W_x$となることから従う. これより$W_x \subset O$であり, さらに</p>
+
+\[O = \bigcup_{x \in O} W_x\]
+
+<p>となることより$O$は開集合であり, したがって$F$は閉集合となる. $\square$</p>
+
+<blockquote class="definition">
+<div class="title">Property : Euclid位相</div>
+<p>
+Euclid位相$\mathbb{R}^n$において, $X \subset \mathbb{R}^n$がコンパクトであることと, $X$が有界閉集合であることとは同値である. 
+</p>
+</blockquote>
+
+<p><strong>証明 :</strong> ($\Leftarrow$) $\mathbb{R}^n$はHausdorff空間であるので, コンパクト集合$X$は閉集合である. 有界性について, $x_0 \in \mathbb{R}^n$を固定すると, $\lbrace B(x_0, \rho) \mid \rho &gt; 0\rbrace$は$X$の開被覆となるが, $X$がコンパクトならば</p>
+
+\[\exists\rho_1, \cdots, \rho_k &gt; 0\ \mathrm{s.t.}\ X = \bigcup_{j = 1}^k B(x_0, \rho_j)\]
+
+<p>このとき, $\rho = \max\lbrace \rho_1, \cdots, \rho_k\rbrace$に対し, $X \subset B(x_0, \rho)$となるので, $X$は有界となる.<br />
+($\Rightarrow$) $X$が有界閉集合であるとき</p>
+
+\[\exists L = [a_1, b_1] \times \cdots \times [a_n, b_n]\ \mathrm{s.t.}\ X \subset L\]
+
+<p>となる. このとき, $L$はコンパクトである. 実際, $\mathbb{R}$におけるHeine-Borelの定理より, 各$[a_i, b_i]$はコンパクトであり, Tychonoffの定理より$L$のコンパクト性が従う. $X$は閉集合なので, $X$の任意の開被覆について, $X$の補集合とそれらとの重なりを考えたとき, これは$L$の開被覆となり, これより$X$のコンパクト性が示される. $\square$</p>
+
+<blockquote class="definition">
+<div class="title">Corollary : コンパクト集合上の連続関数</div>
+<p>
+位相空間$(S, \mathcal{O})$がコンパクトであるとする. $f : S \to \mathbb{R}$が連続であるとき, $f$は最大値, 最小値をとる. 
+</p>
+</blockquote>
+
+<p><strong>証明 :</strong> $R = f(S)$はコンパクトであるので, 先ほど示したことより$R$は有界閉集合となる. $R$の有界性より$\sup R, \inf R$が存在し, $R$が閉集合であることからこれらに収束する$R$の部分列をとることができるので, これらは$R$の元である. よって示された. $\square$</p>
+
+  </div><a class="u-url" href="/u5491_notes/hausdorff.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <footer class="site-footer h-card">
+  <data class="u-url" href="/u5491_notes/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/u5491_notes/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/u5491_notes/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    </footer>
+  </body>
+</html>
