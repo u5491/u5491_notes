@@ -1,25 +1,320 @@
 ---
 ---
 
-@import "minima"; // minima のCSSを読み込む
+@import "minima"; 
 
-/* 🎨 カスタムスタイルはここから下に追加 */
+// ここから自分のカスタムCSS
+
+
+
 body {
-  background-color: #fdfdfd;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: 'Shippori Mincho', serif;
+  background-color: #fefefe;
 }
 
-h1, h2, h3 {
+.post h1.post-title {
+  font-size: 1.8rem;
+  color: black;
+  text-align: center;
+}
+
+main.page-content > div.wrapper > article.post > div.post-content {
+  max-width: 40rem ;
+  padding-left: 1.75rem ;
+  padding-right: 1.75rem ;
+  margin: 0 auto ;
+}
+
+.post-content h2 {
+  font-size: 1.4rem;
   color: #336699;
+  padding-left: 1rem;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.post-content h2::before {
+  content: "";
+  position: absolute;
+  top: 0.1em;
+  left: 0;
+  width: 4px;
+  height: 1.4em;
+  background-color: #336699;
+  border-radius: 0px;
+}
+
+.post .post-content h3 {
+  font-size: 1.2rem !important;
+  color: #336699 !important;
+}
+
+.post-meta {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.svg-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-right: 0.3rem;
+}
+
+.post-content ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1rem;  /* ← 縦線とポチを全体的に右へ */
+  position: relative;
+}
+
+.post-content ul li {
+  position: relative;
+  padding-left: 0.5rem; /* ← ポチとテキストの間を詰める */
+  margin-bottom: 0.5rem;
+}
+
+/* ポチ（正円） */
+.post-content ul li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;        /* ← 少し下へずらす */
+  left: -0.6rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  aspect-ratio: 1 / 1;
+  background-color: #c6c6c6;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* 縦線 */
+.post-content ul li::after {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: -0.45rem;      /* ← 少し左にずらす */
+  width: 1px;
+  height: calc(100% + 0.5rem);
+  background-color: #dbdbdb;
+  z-index: 0;
+}
+
+/* 最後の li だけ縦線なしにする */
+.post-content ul li:last-child::after {
+  content: none;
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.site-description {
+  text-align: center;
+  font-size: 1rem;
+  color: #b6b6b6;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.site-header .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ← 中央寄せ */
+  text-align: center;
+  padding-top: 0;  
+  padding-bottom: 0; 
+}
+
+.site-title {
+  font-size: 1.3rem;
   font-weight: bold;
+  margin: 0;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.5; /* 行の高さを調整 */
 }
 
-a {
-  color: #0066cc;
+.header-description {
+  font-size: 0.8rem;
+  color: #c7c7c7;
+  margin-top: 0rem; 
+  margin: 0;
+  line-height: 2; /* 行の高さを調整 */
 }
 
-code {
-  background-color: #f4f4f4;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
+.post-list-heading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
 }
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  text-align: center; /* ← 中央揃えの決め手！ */
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+}
+
+.post-meta {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
+}
+
+.post-link {
+  font-size: 1.2rem;
+  color: #336699;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.post-list li p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;  /* ← 小さめに調整（例：0.9rem） */
+  color: #555;        /* ← 読みやすく落ち着いた色 */
+  line-height: 1.4;
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-categories {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footer-categories-heading {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.footer-category-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.footer-category-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #336699;
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.footer-category-badge:hover {
+  background-color: #e0e0e0;
+}
+
+.category-heading {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #444;
+  padding-bottom: 0.5rem;
+}
+
+.post-divider {
+  width: 33%; /* 画面幅の約1/3 */
+  margin: 1.5rem auto;
+  border: none;
+  border-top: 1px solid #ddd; /* 薄いグレーの線 */
+}
+
+.site-header {
+  border-top: none !important;
+  box-shadow: none !important;
+  background-color: white;  // ← 好きな色に
+}
+
+.post-content blockquote {
+  border-left: 2px solid #6e9fd1;   /* 左のラインを青系に */
+  color: #6e9fd1;                      /* 文字色は濃いグレーで読みやすく */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size:  1rem;
+  font-style: normal;
+}
+
+mark {
+  background-color: #d3d3d3;
+  padding: 0 0.15em;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.marquee {
+  font-size: 0.95rem;
+  color: #444;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 0.3rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  line-height: 1.2; 
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+  white-space: nowrap;
+  word-break: keep-all;
+  line-height: 1;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* --- Definition ブロック限定スタイル調整 --- */
+blockquote.definition {
+  border-left: 3px solid #0d3b66;
+  background-color: #f9f9f9;
+  color: #004f99 !important;
+  font-style: normal;
+}
+
+/* Definition ブロックのタイトルスタイル（アンダーラインバージョン） */
+blockquote.definition .title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #004f99;
+  margin-bottom: 0.5rem;
+  font-style: normal;
+  text-decoration: underline;  /* ← ここを変更 */
+  text-underline-offset: 0.2rem; /* 下線と文字の間に余白 */
+}
+
+/* Definition 内の本文すべてを黒字・標準フォントにする */
+blockquote.definition p {
+  color: #004f99;
+  font-style: normal;
+}
+
